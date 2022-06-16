@@ -9,13 +9,15 @@ package pepa;
  *
  * @author gabriel
  */
-public class Pepa {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class Telefono{
+    int ID;
+    String Tipo;
+    int Copas;
+    
+    public Telefono(int id,int copas,String tipo){
+        this.ID=id;
+        this.Tipo=tipo;
+        this.Copas=copas;
     }
     
 }
