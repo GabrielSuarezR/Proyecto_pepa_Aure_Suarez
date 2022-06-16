@@ -36,36 +36,44 @@ public class AAInterfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        cantidadcola2 = new javax.swing.JPanel();
+        ventana = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Cola3 = new javax.swing.JLabel();
-        Cola2 = new javax.swing.JLabel();
-        Cola1 = new javax.swing.JLabel();
+        Cola3fab1 = new javax.swing.JLabel();
+        Cola2fab1 = new javax.swing.JLabel();
+        Cola1fab1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Comenzar = new javax.swing.JToggleButton();
         Cantidadcola1 = new javax.swing.JLabel();
         Cantidadcola3 = new javax.swing.JLabel();
         Cantidadcola2 = new javax.swing.JLabel();
         jToggleButton2 = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
+        Cola1fab2 = new javax.swing.JLabel();
+        cola2fab2 = new javax.swing.JLabel();
+        cola3fab2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        Cantidad2cola3 = new javax.swing.JLabel();
+        Cantidad2cola1 = new javax.swing.JLabel();
+        Cantidad2cola2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cantidadcola2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        ventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Colas");
-        cantidadcola2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 32, 24));
+        ventana.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 32, 24));
 
-        Cola3.setText("#3");
-        cantidadcola2.add(Cola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 32, 24));
+        Cola3fab1.setText("#3");
+        ventana.add(Cola3fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 32, 24));
 
-        Cola2.setText("#2");
-        cantidadcola2.add(Cola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 32, 24));
+        Cola2fab1.setText("#2");
+        ventana.add(Cola2fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 32, 24));
 
-        Cola1.setText("#1");
-        cantidadcola2.add(Cola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, 32, 24));
+        Cola1fab1.setText("#1");
+        ventana.add(Cola1fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 32, 24));
 
         jLabel1.setText("Fabrica1");
-        cantidadcola2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, 37));
+        ventana.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, 37));
 
         Comenzar.setText("Comenzar proceso");
         Comenzar.addActionListener(new java.awt.event.ActionListener() {
@@ -73,32 +81,55 @@ public class AAInterfaz extends javax.swing.JFrame {
                 ComenzarActionPerformed(evt);
             }
         });
-        cantidadcola2.add(Comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
+        ventana.add(Comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
 
         Cantidadcola1.setText("0");
-        cantidadcola2.add(Cantidadcola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 130, 30, 20));
+        ventana.add(Cantidadcola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 30, 20));
 
         Cantidadcola3.setText("0");
-        cantidadcola2.add(Cantidadcola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 30, 20));
+        ventana.add(Cantidadcola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 30, 20));
 
         Cantidadcola2.setText("0");
-        cantidadcola2.add(Cantidadcola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 30, 20));
+        ventana.add(Cantidadcola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 30, 20));
 
         jToggleButton2.setText("Parar Proceso");
-        cantidadcola2.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, -1));
+        ventana.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
+
+        jLabel3.setText("Colas");
+        ventana.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 32, 24));
+
+        Cola1fab2.setText("#1");
+        ventana.add(Cola1fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 32, 24));
+
+        cola2fab2.setText("#2");
+        ventana.add(cola2fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 32, 24));
+
+        cola3fab2.setText("#3");
+        ventana.add(cola3fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 32, 24));
+
+        jLabel4.setText("Fabrica2");
+        ventana.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, 37));
+
+        Cantidad2cola3.setText("0");
+        ventana.add(Cantidad2cola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 170, 30, 20));
+
+        Cantidad2cola1.setText("0");
+        ventana.add(Cantidad2cola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 30, 20));
+
+        Cantidad2cola2.setText("0");
+        ventana.add(Cantidad2cola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 30, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cantidadcola2, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(ventana, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cantidadcola2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(ventana, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         pack();
@@ -106,7 +137,7 @@ public class AAInterfaz extends javax.swing.JFrame {
 
     private void ComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComenzarActionPerformed
         CreadorTlf hilotlfs = new CreadorTlf();
-        hilotlfs.run();
+        hilotlfs.start();
 
     }//GEN-LAST:event_ComenzarActionPerformed
 
@@ -146,16 +177,24 @@ public class AAInterfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel Cantidad2cola1;
+    public static javax.swing.JLabel Cantidad2cola2;
+    public static javax.swing.JLabel Cantidad2cola3;
     public static javax.swing.JLabel Cantidadcola1;
     public static javax.swing.JLabel Cantidadcola2;
     public static javax.swing.JLabel Cantidadcola3;
-    private javax.swing.JLabel Cola1;
-    private javax.swing.JLabel Cola2;
-    private javax.swing.JLabel Cola3;
+    private javax.swing.JLabel Cola1fab1;
+    private javax.swing.JLabel Cola1fab2;
+    private javax.swing.JLabel Cola2fab1;
+    private javax.swing.JLabel Cola3fab1;
     private javax.swing.JToggleButton Comenzar;
-    private javax.swing.JPanel cantidadcola2;
+    private javax.swing.JLabel cola2fab2;
+    private javax.swing.JLabel cola3fab2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JPanel ventana;
     // End of variables declaration//GEN-END:variables
 }
