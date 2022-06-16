@@ -20,6 +20,10 @@ public class AAInterfaz extends javax.swing.JFrame {
     public static Cola Prioridad2 = new Cola();
     public static Cola Prioridad3 = new Cola();
     public static Semaphore tlfenfabrica = new Semaphore(20);
+    public static Cola Prioridad12 = new Cola();
+    public static Cola Prioridad22 = new Cola();
+    public static Cola Prioridad32 = new Cola();
+    public static Semaphore tlfenfabrica2 = new Semaphore(20);
     /**
      * Creates new form AAInterfaz
      */
@@ -55,25 +59,32 @@ public class AAInterfaz extends javax.swing.JFrame {
         Cantidad2cola3 = new javax.swing.JLabel();
         Cantidad2cola1 = new javax.swing.JLabel();
         Cantidad2cola2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        desicion = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        Competidor2 = new javax.swing.JLabel();
+        competidor1 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Colas");
-        ventana.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 32, 24));
+        ventana.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 32, 24));
 
         Cola3fab1.setText("#3");
-        ventana.add(Cola3fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 32, 24));
+        ventana.add(Cola3fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 32, 24));
 
         Cola2fab1.setText("#2");
-        ventana.add(Cola2fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 32, 24));
+        ventana.add(Cola2fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 32, 24));
 
         Cola1fab1.setText("#1");
-        ventana.add(Cola1fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 32, 24));
+        ventana.add(Cola1fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 32, 24));
 
         jLabel1.setText("Fabrica1");
-        ventana.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, 37));
+        ventana.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, 37));
 
         Comenzar.setText("Comenzar proceso");
         Comenzar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,40 +95,61 @@ public class AAInterfaz extends javax.swing.JFrame {
         ventana.add(Comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 400, -1, -1));
 
         Cantidadcola1.setText("0");
-        ventana.add(Cantidadcola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 30, 20));
+        ventana.add(Cantidadcola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 30, 20));
 
         Cantidadcola3.setText("0");
-        ventana.add(Cantidadcola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 30, 20));
+        ventana.add(Cantidadcola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 30, 20));
 
         Cantidadcola2.setText("0");
-        ventana.add(Cantidadcola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 30, 20));
+        ventana.add(Cantidadcola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 30, 20));
 
         jToggleButton2.setText("Parar Proceso");
         ventana.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
 
         jLabel3.setText("Colas");
-        ventana.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 130, 32, 24));
+        ventana.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 32, 24));
 
         Cola1fab2.setText("#1");
-        ventana.add(Cola1fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 32, 24));
+        ventana.add(Cola1fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, 32, 24));
 
         cola2fab2.setText("#2");
-        ventana.add(cola2fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 32, 24));
+        ventana.add(cola2fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 32, 24));
 
         cola3fab2.setText("#3");
-        ventana.add(cola3fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, 32, 24));
+        ventana.add(cola3fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 32, 24));
 
         jLabel4.setText("Fabrica2");
-        ventana.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 80, -1, 37));
+        ventana.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, -1, 37));
 
         Cantidad2cola3.setText("0");
-        ventana.add(Cantidad2cola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 170, 30, 20));
+        ventana.add(Cantidad2cola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 30, 20));
 
         Cantidad2cola1.setText("0");
-        ventana.add(Cantidad2cola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 30, 20));
+        ventana.add(Cantidad2cola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 30, 20));
 
         Cantidad2cola2.setText("0");
-        ventana.add(Cantidad2cola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 170, 30, 20));
+        ventana.add(Cantidad2cola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 200, 30, 20));
+
+        jLabel5.setText("AI");
+        ventana.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 10, 20));
+
+        jLabel6.setText("Desicion:");
+        ventana.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
+
+        desicion.setText("...");
+        ventana.add(desicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 70, -1));
+
+        jLabel7.setText("IDTelefonos:");
+        ventana.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 120, -1, -1));
+
+        Competidor2.setText("TLF2");
+        ventana.add(Competidor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 143, 40, 20));
+
+        competidor1.setText("TLF1");
+        ventana.add(competidor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(322, 143, 50, 20));
+
+        jLabel10.setText("VS");
+        ventana.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,6 +170,8 @@ public class AAInterfaz extends javax.swing.JFrame {
     private void ComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComenzarActionPerformed
         CreadorTlf hilotlfs = new CreadorTlf();
         hilotlfs.start();
+        AI ai = new AI();
+        ai.start();
 
     }//GEN-LAST:event_ComenzarActionPerformed
 
@@ -188,12 +222,19 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Cola2fab1;
     private javax.swing.JLabel Cola3fab1;
     private javax.swing.JToggleButton Comenzar;
+    public static javax.swing.JLabel Competidor2;
     private javax.swing.JLabel cola2fab2;
     private javax.swing.JLabel cola3fab2;
+    public static javax.swing.JLabel competidor1;
+    public static javax.swing.JLabel desicion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPanel ventana;
     // End of variables declaration//GEN-END:variables
