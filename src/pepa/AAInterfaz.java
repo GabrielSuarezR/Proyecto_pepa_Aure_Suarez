@@ -27,6 +27,47 @@ public class AAInterfaz extends javax.swing.JFrame {
     /**
      * Creates new form AAInterfaz
      */
+    public static void definirPrioridad(Telefono nuevo){
+        try{
+        if (nuevo.Copas>=3000) {
+                AAInterfaz.Prioridad1.Encolar(nuevo);
+                AAInterfaz.tlfenfabrica.acquire(1);
+                AAInterfaz.Cantidadcola1.setText(Integer.toString(AAInterfaz.Prioridad1.size));
+        }if (nuevo.Copas<3000 && nuevo.Copas>=2000) {
+            AAInterfaz.Prioridad2.Encolar(nuevo);
+            AAInterfaz.tlfenfabrica.acquire(1);
+            AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
+        }if (nuevo.Copas<2000) {
+            AAInterfaz.Prioridad3.Encolar(nuevo);
+            AAInterfaz.tlfenfabrica.acquire(1);
+            AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
+        }
+        }
+            catch (InterruptedException ex) {
+                Logger.getLogger(CreadorTlf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public static void definirPrioridad2(Telefono nuevo) {
+        try{
+        if (nuevo.Copas>=3000) {
+            AAInterfaz.Prioridad12.Encolar(nuevo);
+            AAInterfaz.tlfenfabrica2.acquire(1);
+            AAInterfaz.Cantidad2cola1.setText(Integer.toString(AAInterfaz.Prioridad12.size));
+        }if (nuevo.Copas<3000 && nuevo.Copas>=2000) {
+            AAInterfaz.Prioridad22.Encolar(nuevo);
+            AAInterfaz.tlfenfabrica2.acquire(1);
+            AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
+        }if (nuevo.Copas<2000) {
+            AAInterfaz.Prioridad32.Encolar(nuevo);
+            AAInterfaz.tlfenfabrica2.acquire(1);
+            AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
+        }
+        }
+        catch (InterruptedException ex) {
+                Logger.getLogger(CreadorTlf.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public AAInterfaz() {
         initComponents();
     }
@@ -66,6 +107,9 @@ public class AAInterfaz extends javax.swing.JFrame {
         Competidor2 = new javax.swing.JLabel();
         competidor1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        Contadorfab13 = new javax.swing.JLabel();
+        contadorfab12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -151,6 +195,15 @@ public class AAInterfaz extends javax.swing.JFrame {
         jLabel10.setText("VS");
         ventana.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
 
+        jLabel8.setText("Contador:");
+        ventana.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
+
+        Contadorfab13.setText("0");
+        ventana.add(Contadorfab13, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 40, 20));
+
+        contadorfab12.setText("0");
+        ventana.add(contadorfab12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 40, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,9 +276,11 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel Cola3fab1;
     private javax.swing.JToggleButton Comenzar;
     public static javax.swing.JLabel Competidor2;
+    public static javax.swing.JLabel Contadorfab13;
     private javax.swing.JLabel cola2fab2;
     private javax.swing.JLabel cola3fab2;
     public static javax.swing.JLabel competidor1;
+    public static javax.swing.JLabel contadorfab12;
     public static javax.swing.JLabel desicion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -235,6 +290,7 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPanel ventana;
     // End of variables declaration//GEN-END:variables
