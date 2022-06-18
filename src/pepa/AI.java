@@ -18,6 +18,8 @@ public class AI extends Thread{
     int contadorcola3=0;
     int contadorcola22=0;
     int contadorcola23=0;
+    Telefono comp1;
+    Telefono comp2;
     
     
     public void StopToggle(){
@@ -31,6 +33,7 @@ public class AI extends Thread{
             //Para prioridad 1
             if (AAInterfaz.Prioridad1.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad1.getPfirst();
+                comp1=temporal.telefono;
                 AAInterfaz.Prioridad1.Desencolar();
                 AAInterfaz.tlfenfabrica.release();
                 AAInterfaz.Cantidadcola1.setText(Integer.toString(AAInterfaz.Prioridad1.size));
@@ -71,6 +74,7 @@ public class AI extends Thread{
                     contadorcola2=0;
                     AAInterfaz.contadorfab12.setText(Integer.toString(contadorcola2));
                     Nodo temporal = AAInterfaz.Prioridad2.getPfirst();
+                    comp1=temporal.telefono;
                     AAInterfaz.competidor1.setText(Integer.toString(temporal.telefono.ID));
                     AAInterfaz.Prioridad2.Desencolar();
                     AAInterfaz.tlfenfabrica.release();
@@ -97,6 +101,7 @@ public class AI extends Thread{
                          contadorcola3=0;
                          AAInterfaz.Contadorfab13.setText(Integer.toString(contadorcola3));
                         Nodo temporal = AAInterfaz.Prioridad3.getPfirst();
+                        comp1=temporal.telefono;
                         AAInterfaz.competidor1.setText(Integer.toString(temporal.telefono.ID));
                         AAInterfaz.Prioridad3.Desencolar();
                         AAInterfaz.tlfenfabrica.release();
@@ -108,8 +113,8 @@ public class AI extends Thread{
             //prioridad 1 
             if (AAInterfaz.Prioridad12.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad12.getPfirst();
+                comp2=temporal.telefono;
                 AAInterfaz.Prioridad12.Desencolar();
-                System.out.println("hola");
                 AAInterfaz.tlfenfabrica2.release(1);
                 System.out.println(AAInterfaz.tlfenfabrica2.availablePermits());
                 AAInterfaz.Cantidad2cola1.setText(Integer.toString(AAInterfaz.Prioridad12.size));
@@ -150,6 +155,7 @@ public class AI extends Thread{
                     contadorcola22=0;
                     AAInterfaz.Contadorfab22.setText(Integer.toString(contadorcola22));
                     Nodo temporal = AAInterfaz.Prioridad22.getPfirst();
+                    comp2=temporal.telefono;
                     AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
                     AAInterfaz.Prioridad22.Desencolar();
                     AAInterfaz.tlfenfabrica2.release(1);
@@ -175,6 +181,7 @@ public class AI extends Thread{
                          contadorcola23=0;
                          AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
                         Nodo temporal = AAInterfaz.Prioridad32.getPfirst();
+                        comp2=temporal.telefono;
                         AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
                         AAInterfaz.Prioridad32.Desencolar();
                         AAInterfaz.tlfenfabrica2.release(1);
@@ -182,6 +189,22 @@ public class AI extends Thread{
                      }
                 }
             }
+            //combate
+            int accion;
+            int max=100;
+            int min=0;
+            AAInterfaz.copascomp1.setText(Integer.toString(comp1.Copas));
+            AAInterfaz.copascomp2.setText(Integer.toString(comp2.Copas));
+            accion = (int)(Math.random()*(max-min+1)+min);
+                if (accion<=40) {
+                    AAInterfaz.desicion.setText("Competir");
+                    
+                }if (accion>=41 && accion<=67) {
+                    
+                }if (accion>=68) {
+                    
+                }
+            
             } 
         } catch (InterruptedException ex) {
             Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);

@@ -39,24 +39,24 @@ public class CreadorTlf extends Thread{
                         for (int j = 0; j < 3; j++) {
                             calidad = (int)(Math.random()*(max-min+1)+min);
                             if (calidad<=80) {
-                                copastelefono+=334;
+                                copastelefono+=330;
                             }
                         }
                         //copas por botones
                         for (int k = 0; k < 4; k++) {
                             calidad = (int)(Math.random()*(max-min+1)+min);
                             if (calidad<=85) {
-                                copastelefono+=334;
+                                copastelefono+=320;
                             }
                         }
                         //copas por pantallas y pines de carga
                         calidad = (int)(Math.random()*(max-min+1)+min);
                         if (calidad<=75) {
-                            copastelefono+=334;
+                            copastelefono+=400;
                         }
                         calidad = (int)(Math.random()*(max-min+1)+min);
                         if (calidad<=84) {
-                            copastelefono+=334;
+                            copastelefono+=400;
                         }
                         Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 10 IV");
                         AAInterfaz.numeroID+=1;
