@@ -16,6 +16,8 @@ public class AI extends Thread{
     public boolean stop = true;
     int contadorcola2=0;
     int contadorcola3=0;
+    int contadorcola22=0;
+    int contadorcola23=0;
     
     
     public void StopToggle(){
@@ -54,7 +56,7 @@ public class AI extends Thread{
                     if (contadorcola3==8) {
                     Nodo ascender = AAInterfaz.Prioridad3.pfirst;
                         AAInterfaz.Prioridad3.Desencolar();
-                        int copas= 3000-ascender.telefono.Copas;
+                        int copas= 2000-ascender.telefono.Copas;
                         ascender.telefono.Copas = ascender.telefono.Copas+copas;
                         AAInterfaz.Prioridad2.Encolar(ascender.telefono);
                         AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
@@ -79,8 +81,9 @@ public class AI extends Thread{
                     if (contadorcola3==8) {
                     Nodo ascender = AAInterfaz.Prioridad3.pfirst;
                         AAInterfaz.Prioridad3.Desencolar();
-                        int copas= 3000-ascender.telefono.Copas;
+                        int copas= 2000-ascender.telefono.Copas;
                         ascender.telefono.Copas = ascender.telefono.Copas+copas;
+                        System.out.println(ascender.telefono.Copas);
                         AAInterfaz.Prioridad2.Encolar(ascender.telefono);
                         AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
                         AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
@@ -98,6 +101,84 @@ public class AI extends Thread{
                         AAInterfaz.Prioridad3.Desencolar();
                         AAInterfaz.tlfenfabrica.release();
                         AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
+                     }
+                }
+            }
+            //fab2
+            //prioridad 1 
+            if (AAInterfaz.Prioridad12.size!=0) {
+                Nodo temporal = AAInterfaz.Prioridad12.getPfirst();
+                AAInterfaz.Prioridad12.Desencolar();
+                System.out.println("hola");
+                AAInterfaz.tlfenfabrica2.release(1);
+                System.out.println(AAInterfaz.tlfenfabrica2.availablePermits());
+                AAInterfaz.Cantidad2cola1.setText(Integer.toString(AAInterfaz.Prioridad12.size));
+                AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
+                if (!AAInterfaz.Prioridad22.esta_vacia()) {
+                    contadorcola22+=1;
+                    AAInterfaz.Contadorfab22.setText(Integer.toString(contadorcola22));
+                    if (contadorcola22==8) {
+                        Nodo ascender = AAInterfaz.Prioridad22.pfirst;
+                        AAInterfaz.Prioridad22.Desencolar();
+                        int copas= 3000-ascender.telefono.Copas;
+                        ascender.telefono.Copas = ascender.telefono.Copas+copas;
+                        AAInterfaz.Prioridad12.Encolar(ascender.telefono);
+                        AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
+                        AAInterfaz.Cantidad2cola1.setText(Integer.toString(AAInterfaz.Prioridad12.size));
+                        AAInterfaz.Contadorfab22.setText(Integer.toString(contadorcola22));
+                        contadorcola22=0;
+                    }
+                }
+                if (!AAInterfaz.Prioridad32.esta_vacia()) {
+                    contadorcola23+=1;
+                    AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
+                    if (contadorcola23==8) {
+                    Nodo ascender = AAInterfaz.Prioridad32.pfirst;
+                        AAInterfaz.Prioridad32.Desencolar();
+                        int copas= 2000-ascender.telefono.Copas;
+                        ascender.telefono.Copas = ascender.telefono.Copas+copas;
+                        AAInterfaz.Prioridad22.Encolar(ascender.telefono);
+                        AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
+                        AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
+                        AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
+                        contadorcola23=0;
+                    }
+                }   
+                //Para prioridad 2
+            }else{
+                if (AAInterfaz.Prioridad22.size!=0) {
+                    contadorcola22=0;
+                    AAInterfaz.Contadorfab22.setText(Integer.toString(contadorcola22));
+                    Nodo temporal = AAInterfaz.Prioridad22.getPfirst();
+                    AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
+                    AAInterfaz.Prioridad22.Desencolar();
+                    AAInterfaz.tlfenfabrica2.release(1);
+                    AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
+                    if (!AAInterfaz.Prioridad32.esta_vacia()) {
+                    contadorcola23+=1;
+                    AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
+                    if (contadorcola23==8) {
+                    Nodo ascender = AAInterfaz.Prioridad32.pfirst;
+                        AAInterfaz.Prioridad32.Desencolar();
+                        int copas= 2000-ascender.telefono.Copas;
+                        ascender.telefono.Copas = ascender.telefono.Copas+copas;
+                        AAInterfaz.Prioridad22.Encolar(ascender.telefono);
+                        AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
+                        AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
+                        AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
+                        contadorcola23=0;
+                    }   
+                }    
+                    //Para prioridad 3
+                }else{
+                     if (AAInterfaz.Prioridad32.size!=0) {
+                         contadorcola23=0;
+                         AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
+                        Nodo temporal = AAInterfaz.Prioridad32.getPfirst();
+                        AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
+                        AAInterfaz.Prioridad32.Desencolar();
+                        AAInterfaz.tlfenfabrica2.release(1);
+                        AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
                      }
                 }
             }

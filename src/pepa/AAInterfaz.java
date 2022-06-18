@@ -110,6 +110,9 @@ public class AAInterfaz extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         Contadorfab13 = new javax.swing.JLabel();
         contadorfab12 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        Contadorfab22 = new javax.swing.JLabel();
+        contadorfab23 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -204,6 +207,15 @@ public class AAInterfaz extends javax.swing.JFrame {
         contadorfab12.setText("0");
         ventana.add(contadorfab12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 40, 20));
 
+        jLabel9.setText("Contador:");
+        ventana.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 240, -1, -1));
+
+        Contadorfab22.setText("0");
+        ventana.add(Contadorfab22, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 240, 40, 20));
+
+        contadorfab23.setText("0");
+        ventana.add(contadorfab23, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, 40, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -223,6 +235,8 @@ public class AAInterfaz extends javax.swing.JFrame {
     private void ComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComenzarActionPerformed
         CreadorTlf hilotlfs = new CreadorTlf();
         hilotlfs.start();
+        Creadortlf2 hilotlfs2 = new Creadortlf2();
+        hilotlfs2.start();
         AI ai = new AI();
         ai.start();
 
@@ -277,10 +291,12 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JToggleButton Comenzar;
     public static javax.swing.JLabel Competidor2;
     public static javax.swing.JLabel Contadorfab13;
+    public static javax.swing.JLabel Contadorfab22;
     private javax.swing.JLabel cola2fab2;
     private javax.swing.JLabel cola3fab2;
     public static javax.swing.JLabel competidor1;
     public static javax.swing.JLabel contadorfab12;
+    public static javax.swing.JLabel contadorfab23;
     public static javax.swing.JLabel desicion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -291,6 +307,7 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPanel ventana;
     // End of variables declaration//GEN-END:variables
