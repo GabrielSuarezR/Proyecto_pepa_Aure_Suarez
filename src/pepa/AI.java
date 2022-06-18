@@ -7,6 +7,8 @@ package pepa;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JProgressBar;
+
 
 /**
  *
@@ -27,25 +29,23 @@ public class AI extends Thread{
     public void StopToggle(){
         this.stop=!this.stop;
     }
+    private void animation(JProgressBar p) {
+        for (int i = 0; i < 1000; i++) {
+            p.setValue(i);
+            try {
+                sleep(tiempo/1000);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+}
+
     @Override
     public void run(){
         try {
             while (stop) { 
-            sleep(tiempo/5);
-            progreso=0;
-            AAInterfaz.Progreso.setValue(progreso);
-            sleep(tiempo/5);
-            progreso+=25;
-            AAInterfaz.Progreso.setValue(progreso);
-            sleep(tiempo/5);
-            progreso+=25;
-            AAInterfaz.Progreso.setValue(progreso);
-            sleep(tiempo/5);
-            progreso+=25;
-            AAInterfaz.Progreso.setValue(progreso);
-            sleep(tiempo/5);
-            progreso+=25;
-            AAInterfaz.Progreso.setValue(progreso);
+            animation(AAInterfaz.Progreso);
+                sleep(10);
             //Para prioridad 1
             if (AAInterfaz.Prioridad1.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad1.getPfirst();

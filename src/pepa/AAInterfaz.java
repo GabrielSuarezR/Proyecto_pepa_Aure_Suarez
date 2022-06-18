@@ -70,6 +70,7 @@ public class AAInterfaz extends javax.swing.JFrame {
     }
     public AAInterfaz() {
         initComponents();
+        Progreso.setMaximum(1000);
     }
 
     /**
