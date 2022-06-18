@@ -113,7 +113,7 @@ public class AAInterfaz extends javax.swing.JFrame {
         Contadorfab22 = new javax.swing.JLabel();
         contadorfab23 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Mercado = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
         IDfab13 = new javax.swing.JTextArea();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -127,7 +127,7 @@ public class AAInterfaz extends javax.swing.JFrame {
         IDfab21 = new javax.swing.JTextArea();
         jScrollPane9 = new javax.swing.JScrollPane();
         IDfab22 = new javax.swing.JTextArea();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        Progreso = new javax.swing.JProgressBar();
         copascomp1 = new javax.swing.JLabel();
         copascomp2 = new javax.swing.JLabel();
 
@@ -198,7 +198,7 @@ public class AAInterfaz extends javax.swing.JFrame {
         ventana.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
 
         desicion.setText("...");
-        ventana.add(desicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 70, -1));
+        ventana.add(desicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 110, 20));
 
         jLabel7.setText("IDTelefonos:");
         ventana.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
@@ -230,9 +230,9 @@ public class AAInterfaz extends javax.swing.JFrame {
         contadorfab23.setText("0");
         ventana.add(contadorfab23, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 40, 20));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Mercado.setColumns(20);
+        Mercado.setRows(5);
+        jScrollPane1.setViewportView(Mercado);
 
         ventana.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 200, 200));
 
@@ -274,7 +274,7 @@ public class AAInterfaz extends javax.swing.JFrame {
         jScrollPane9.setViewportView(IDfab22);
 
         ventana.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, 60, 440));
-        ventana.add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, 20));
+        ventana.add(Progreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, 20));
 
         copascomp1.setText("0");
         ventana.add(copascomp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 50, 20));
@@ -364,6 +364,8 @@ public class AAInterfaz extends javax.swing.JFrame {
     public static javax.swing.JTextArea IDfab21;
     public static javax.swing.JTextArea IDfab22;
     public static javax.swing.JTextArea IDfab23;
+    public static javax.swing.JTextArea Mercado;
+    public static javax.swing.JProgressBar Progreso;
     private javax.swing.JLabel cola2fab2;
     private javax.swing.JLabel cola3fab2;
     public static javax.swing.JLabel competidor1;
@@ -382,7 +384,6 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
@@ -390,7 +391,6 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPanel ventana;
     // End of variables declaration//GEN-END:variables

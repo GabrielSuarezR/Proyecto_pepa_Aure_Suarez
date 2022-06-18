@@ -27,7 +27,6 @@ public class CreadorTlf extends Thread{
             AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
             AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
             sleep(100);
-                System.out.println("b");
             if (AAInterfaz.tlfenfabrica.availablePermits()!=0) {
                 if (AAInterfaz.EnProceso==false) {
                     for (int i = 0; i < 10; i++) {

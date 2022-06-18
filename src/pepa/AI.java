@@ -20,6 +20,8 @@ public class AI extends Thread{
     int contadorcola23=0;
     Telefono comp1;
     Telefono comp2;
+    int progreso=0;
+    int tiempo = 2500;
     
     
     public void StopToggle(){
@@ -28,8 +30,22 @@ public class AI extends Thread{
     @Override
     public void run(){
         try {
-            while (stop) {                    
-            sleep(3400);
+            while (stop) { 
+            sleep(tiempo/5);
+            progreso=0;
+            AAInterfaz.Progreso.setValue(progreso);
+            sleep(tiempo/5);
+            progreso+=25;
+            AAInterfaz.Progreso.setValue(progreso);
+            sleep(tiempo/5);
+            progreso+=25;
+            AAInterfaz.Progreso.setValue(progreso);
+            sleep(tiempo/5);
+            progreso+=25;
+            AAInterfaz.Progreso.setValue(progreso);
+            sleep(tiempo/5);
+            progreso+=25;
+            AAInterfaz.Progreso.setValue(progreso);
             //Para prioridad 1
             if (AAInterfaz.Prioridad1.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad1.getPfirst();
@@ -197,11 +213,19 @@ public class AI extends Thread{
             AAInterfaz.copascomp2.setText(Integer.toString(comp2.Copas));
             accion = (int)(Math.random()*(max-min+1)+min);
                 if (accion<=40) {
-                    AAInterfaz.desicion.setText("Competir");
-                    
+                    AAInterfaz.desicion.setText("Sale al mercado");
+                    if (comp1.Copas>comp2.Copas) {
+                        AAInterfaz.Mercado.append(comp1.Tipo+" "+Integer.toString(comp1.ID)+"\n");
+                    }if (comp2.Copas>comp1.Copas) {
+                        AAInterfaz.Mercado.append(comp2.Tipo+" "+Integer.toString(comp2.ID)+"\n");         
+                    }else{
+                        
+                    }
                 }if (accion>=41 && accion<=67) {
+                    AAInterfaz.desicion.setText("Empate");
                     
                 }if (accion>=68) {
+                    AAInterfaz.desicion.setText("Requiere refuerzo");
                     
                 }
             
