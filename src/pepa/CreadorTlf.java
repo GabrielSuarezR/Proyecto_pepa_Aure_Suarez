@@ -23,13 +23,11 @@ public class CreadorTlf extends Thread{
     public void run(){
         while (stop) {  
             try{
-            AAInterfaz.Cantidadcola1.setText(Integer.toString(AAInterfaz.Prioridad1.size));
-            AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
-            AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
             sleep(100);
-            if (AAInterfaz.tlfenfabrica.availablePermits()!=0) {
+                if (AAInterfaz.revisados == 4 | AAInterfaz.cuenta1 != 20) {
+                 if (AAInterfaz.tlfenfabrica.availablePermits()!=0) {
                 if (AAInterfaz.EnProceso==false) {
-                    for (int i = 0; i < 10; i++) {
+//                    for (int i = 0; i < 10; i++) {
                         int max=100;
                         int min=0;
                         int calidad=0;
@@ -57,13 +55,14 @@ public class CreadorTlf extends Thread{
                         if (calidad<=84) {
                             copastelefono+=400;
                         }
+                         AAInterfaz.mutex.acquire();
                         Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 10 IV");
-                        AAInterfaz.mutex.acquire();
                         AAInterfaz.numeroID+=1;
                         AAInterfaz.mutex.release();
                         AAInterfaz.definirPrioridad(nuevo);
 //                    System.out.println(nuevo.Copas+" "+nuevo.ID);
-                    }
+//                    }
+                }
                 }
             }
 

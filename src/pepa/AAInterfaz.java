@@ -14,16 +14,21 @@ import java.util.logging.Logger;
  * @author gabriel
  */
 public class AAInterfaz extends javax.swing.JFrame {
+    public static int revisados = 0;
+    public static int cuenta1=0;
+    public static int cuenta2=0;
     public static Semaphore mutex = new Semaphore(1);
     public static boolean EnProceso = false;
     public static int numeroID = 00000;
     public static Cola Prioridad1 = new Cola();
     public static Cola Prioridad2 = new Cola();
     public static Cola Prioridad3 = new Cola();
+    public static Cola Refuerzo1 = new Cola();
     public static Semaphore tlfenfabrica = new Semaphore(20);
     public static Cola Prioridad12 = new Cola();
     public static Cola Prioridad22 = new Cola();
     public static Cola Prioridad32 = new Cola();
+     public static Cola Refuerzo2 = new Cola();
     public static Semaphore tlfenfabrica2 = new Semaphore(20);
     /**
      * Creates new form AAInterfaz
@@ -43,6 +48,10 @@ public class AAInterfaz extends javax.swing.JFrame {
             AAInterfaz.tlfenfabrica.acquire(1);
             AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
         }
+        revisados=0;
+            if (cuenta1!=20) {
+                cuenta1+=1;   
+            }
         }
             catch (InterruptedException ex) {
                 Logger.getLogger(CreadorTlf.class.getName()).log(Level.SEVERE, null, ex);
@@ -64,10 +73,38 @@ public class AAInterfaz extends javax.swing.JFrame {
             AAInterfaz.tlfenfabrica2.acquire(1);
             AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
         }
+        revisados=0;
+            if (cuenta2!=20) {
+                cuenta2+=1;   
+            }
         }
         catch (InterruptedException ex) {
                 Logger.getLogger(CreadorTlf.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public static void definirprioridadgeneral1(Telefono comp1){
+        if (comp1.Copas>=3000) {
+            AAInterfaz.Prioridad1.Encolar(comp1);
+            AAInterfaz.Cantidadcola1.setText(Integer.toString(AAInterfaz.Prioridad1.size));
+            }if (comp1.Copas<3000 && comp1.Copas>=2000) {
+                AAInterfaz.Prioridad2.Encolar(comp1);
+                AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
+            }if (comp1.Copas<2000) {
+                AAInterfaz.Prioridad3.Encolar(comp1);
+                AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
+            }
+    }
+    public static void definirprioridadgeneral2(Telefono comp2){
+        if (comp2.Copas>=3000) {
+            AAInterfaz.Prioridad12.Encolar(comp2);
+            AAInterfaz.Cantidad2cola1.setText(Integer.toString(AAInterfaz.Prioridad12.size));
+            }if (comp2.Copas<3000 && comp2.Copas>=2000) {
+                AAInterfaz.Prioridad22.Encolar(comp2);
+                AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
+            }if (comp2.Copas<2000) {
+                AAInterfaz.Prioridad32.Encolar(comp2);
+                AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
+            }
     }
     
     public AAInterfaz() {
@@ -133,6 +170,12 @@ public class AAInterfaz extends javax.swing.JFrame {
         Progreso = new javax.swing.JProgressBar();
         copascomp1 = new javax.swing.JLabel();
         copascomp2 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Refuerzofab2 = new javax.swing.JTextArea();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Refuerzofab1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -285,6 +328,24 @@ public class AAInterfaz extends javax.swing.JFrame {
         copascomp2.setText("0");
         ventana.add(copascomp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 50, 20));
 
+        jLabel12.setText("Cola Refuerzo 2");
+        ventana.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, -1, -1));
+
+        jLabel13.setText("Cola Refuerzo 1");
+        ventana.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 470, -1, -1));
+
+        Refuerzofab2.setColumns(20);
+        Refuerzofab2.setRows(5);
+        jScrollPane2.setViewportView(Refuerzofab2);
+
+        ventana.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, 110, 150));
+
+        Refuerzofab1.setColumns(20);
+        Refuerzofab1.setRows(5);
+        jScrollPane3.setViewportView(Refuerzofab1);
+
+        ventana.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 490, 110, 150));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -369,6 +430,8 @@ public class AAInterfaz extends javax.swing.JFrame {
     public static javax.swing.JTextArea IDfab23;
     public static javax.swing.JTextArea Mercado;
     public static javax.swing.JProgressBar Progreso;
+    public static javax.swing.JTextArea Refuerzofab1;
+    public static javax.swing.JTextArea Refuerzofab2;
     private javax.swing.JLabel cola2fab2;
     private javax.swing.JLabel cola3fab2;
     public static javax.swing.JLabel competidor1;
@@ -379,6 +442,8 @@ public class AAInterfaz extends javax.swing.JFrame {
     public static javax.swing.JLabel desicion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -388,6 +453,8 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;

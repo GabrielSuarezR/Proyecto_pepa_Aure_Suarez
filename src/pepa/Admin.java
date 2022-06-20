@@ -66,6 +66,28 @@ public class Admin extends Thread{
                     temp = temp.siguiente;
                 }
                 AAInterfaz.IDfab23.setText(texto);
+                if (!AAInterfaz.Refuerzo1.esta_vacia()) {
+                    texto="";
+                    temp= AAInterfaz.Refuerzo1.pfirst;
+                    for (int i = 0; i < AAInterfaz.Refuerzo1.size; i++) {
+                        texto += temp.telefono.ID+"\n";
+                        temp = temp.siguiente;
+                }
+                }else{
+                    texto="";
+                }
+                AAInterfaz.Refuerzofab1.setText(texto);
+                if (!AAInterfaz.Refuerzo2.esta_vacia()) {
+                    texto="";
+                    temp= AAInterfaz.Refuerzo2.pfirst;
+                    for (int i = 0; i < AAInterfaz.Refuerzo2.size; i++) {
+                        texto += temp.telefono.ID+"\n";
+                        temp = temp.siguiente;
+                }
+                }else{
+                    texto="";
+                }
+                AAInterfaz.Refuerzofab2.setText(texto);
             }
                 } catch (InterruptedException ex) {
             Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
