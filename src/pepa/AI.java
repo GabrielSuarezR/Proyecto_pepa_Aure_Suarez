@@ -23,7 +23,7 @@ public class AI extends Thread{
     Telefono comp1;
     Telefono comp2;
     int progreso=0;
-    int tiempo = 2500;
+    int tiempo = 14000;
     
     
     public void StopToggle(){
@@ -44,14 +44,13 @@ public class AI extends Thread{
     public void run(){
         try {
             while (stop) { 
-            animation(AAInterfaz.Progreso);
-                sleep(10);
+                sleep(1000);
             //Para prioridad 1
             if (AAInterfaz.Prioridad1.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad1.getPfirst();
                 comp1=temporal.telefono;
                 AAInterfaz.Prioridad1.Desencolar();
-                AAInterfaz.tlfenfabrica.release();
+//                AAInterfaz.tlfenfabrica.release();
                 AAInterfaz.Cantidadcola1.setText(Integer.toString(AAInterfaz.Prioridad1.size));
                 AAInterfaz.competidor1.setText(Integer.toString(temporal.telefono.ID));
                 if (!AAInterfaz.Prioridad2.esta_vacia()) {
@@ -93,7 +92,7 @@ public class AI extends Thread{
                     comp1=temporal.telefono;
                     AAInterfaz.competidor1.setText(Integer.toString(temporal.telefono.ID));
                     AAInterfaz.Prioridad2.Desencolar();
-                    AAInterfaz.tlfenfabrica.release();
+//                    AAInterfaz.tlfenfabrica.release();
                     AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
                     if (!AAInterfaz.Prioridad3.esta_vacia()) {
                     contadorcola3+=1;
@@ -120,7 +119,7 @@ public class AI extends Thread{
                         comp1=temporal.telefono;
                         AAInterfaz.competidor1.setText(Integer.toString(temporal.telefono.ID));
                         AAInterfaz.Prioridad3.Desencolar();
-                        AAInterfaz.tlfenfabrica.release();
+//                        AAInterfaz.tlfenfabrica.release();
                         AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
                      }
                 }
@@ -131,7 +130,7 @@ public class AI extends Thread{
                 Nodo temporal = AAInterfaz.Prioridad12.getPfirst();
                 comp2=temporal.telefono;
                 AAInterfaz.Prioridad12.Desencolar();
-                AAInterfaz.tlfenfabrica2.release(1);
+//                AAInterfaz.tlfenfabrica2.release(1);
                 System.out.println(AAInterfaz.tlfenfabrica2.availablePermits());
                 AAInterfaz.Cantidad2cola1.setText(Integer.toString(AAInterfaz.Prioridad12.size));
                 AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
@@ -174,7 +173,7 @@ public class AI extends Thread{
                     comp2=temporal.telefono;
                     AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
                     AAInterfaz.Prioridad22.Desencolar();
-                    AAInterfaz.tlfenfabrica2.release(1);
+//                    AAInterfaz.tlfenfabrica2.release(1);
                     AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
                     if (!AAInterfaz.Prioridad32.esta_vacia()) {
                     contadorcola23+=1;
@@ -200,29 +199,53 @@ public class AI extends Thread{
                         comp2=temporal.telefono;
                         AAInterfaz.Competidor2.setText(Integer.toString(temporal.telefono.ID));
                         AAInterfaz.Prioridad32.Desencolar();
-                        AAInterfaz.tlfenfabrica2.release(1);
+//                        AAInterfaz.tlfenfabrica2.release(1);
                         AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
                      }
                 }
             }
             //combate
+            AAInterfaz.copascomp1.setText(Integer.toString(comp1.Copas));
+            AAInterfaz.copascomp2.setText(Integer.toString(comp2.Copas));
+            animation(AAInterfaz.Progreso);
+                sleep(10);
             int accion;
             int max=100;
             int min=0;
-            AAInterfaz.copascomp1.setText(Integer.toString(comp1.Copas));
-            AAInterfaz.copascomp2.setText(Integer.toString(comp2.Copas));
             accion = (int)(Math.random()*(max-min+1)+min);
                 if (accion<=40) {
                     AAInterfaz.desicion.setText("Sale al mercado");
                     if (comp1.Copas>comp2.Copas) {
-                        AAInterfaz.Mercado.append(comp1.Tipo+" "+Integer.toString(comp1.ID)+"\n");
+                        AAInterfaz.Mercado.append(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
+                        AAInterfaz.tlfenfabrica2.release(1);
+                        AAInterfaz.tlfenfabrica.release();
                     }if (comp2.Copas>comp1.Copas) {
-                        AAInterfaz.Mercado.append(comp2.Tipo+" "+Integer.toString(comp2.ID)+"\n");         
-                    }else{
-                        
+                        AAInterfaz.Mercado.append(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n"); 
+                        AAInterfaz.tlfenfabrica2.release(1);
+                        AAInterfaz.tlfenfabrica.release();
                     }
                 }if (accion>=41 && accion<=67) {
                     AAInterfaz.desicion.setText("Empate");
+                    if (comp1.Copas>=3000) {
+                        AAInterfaz.Prioridad1.Encolar(comp1);
+                        AAInterfaz.Cantidadcola1.setText(Integer.toString(AAInterfaz.Prioridad1.size));
+                        }if (comp1.Copas<3000 && comp1.Copas>=2000) {
+                            AAInterfaz.Prioridad2.Encolar(comp1);
+                            AAInterfaz.Cantidadcola2.setText(Integer.toString(AAInterfaz.Prioridad2.size));
+                        }if (comp1.Copas<2000) {
+                            AAInterfaz.Prioridad3.Encolar(comp1);
+                            AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
+                        }
+                        if (comp2.Copas>=3000) {
+                        AAInterfaz.Prioridad12.Encolar(comp2);
+                        AAInterfaz.Cantidad2cola1.setText(Integer.toString(AAInterfaz.Prioridad12.size));
+                        }if (comp2.Copas<3000 && comp2.Copas>=2000) {
+                            AAInterfaz.Prioridad22.Encolar(comp2);
+                            AAInterfaz.Cantidad2cola2.setText(Integer.toString(AAInterfaz.Prioridad22.size));
+                        }if (comp2.Copas<2000) {
+                            AAInterfaz.Prioridad32.Encolar(comp2);
+                            AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
+                        }
                     
                 }if (accion>=68) {
                     AAInterfaz.desicion.setText("Requiere refuerzo");

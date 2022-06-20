@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  * @author gabriel
  */
 public class AAInterfaz extends javax.swing.JFrame {
+    public static Semaphore mutex = new Semaphore(1);
     public static boolean EnProceso = false;
     public static int numeroID = 00000;
     public static Cola Prioridad1 = new Cola();
@@ -68,6 +69,7 @@ public class AAInterfaz extends javax.swing.JFrame {
                 Logger.getLogger(CreadorTlf.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     public AAInterfaz() {
         initComponents();
         Progreso.setMaximum(1000);

@@ -59,7 +59,9 @@ public class Creadortlf2 extends  Thread{
                             copastelefono+=400;
                         }
                         Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 1 IV");
+                        AAInterfaz.mutex.acquire();
                         AAInterfaz.numeroID+=1;
+                        AAInterfaz.mutex.release();
                         AAInterfaz.definirPrioridad2(nuevo);
 //                    System.out.println(nuevo.Copas+" "+nuevo.ID);
                     }
