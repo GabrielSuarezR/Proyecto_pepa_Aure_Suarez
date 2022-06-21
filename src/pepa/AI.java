@@ -23,7 +23,8 @@ public class AI extends Thread{
     Telefono comp1;
     Telefono comp2;
     int progreso=0;
-    int tiempo = 14;
+    int tiempo = 140;
+    boolean revisados = true;
     
     
     public void StopToggle(){
@@ -46,6 +47,7 @@ public class AI extends Thread{
             while (stop) { 
                 sleep(100);
             //Para prioridad 1
+                if (revisados ==true) {
             if (AAInterfaz.Prioridad1.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad1.getPfirst();
                 comp1=temporal.telefono;
@@ -83,6 +85,7 @@ public class AI extends Thread{
                         contadorcola3=0;
                     }
                 }   
+                revisados = false;
                 //Para prioridad 2
             }else{
                 if (AAInterfaz.Prioridad2.size!=0) {
@@ -109,7 +112,8 @@ public class AI extends Thread{
                         AAInterfaz.Contadorfab13.setText(Integer.toString(contadorcola3));
                         contadorcola3=0;
                     }   
-                }    
+                }   
+                    revisados = false;
                     //Para prioridad 3
                 }else{
                      if (AAInterfaz.Prioridad3.size!=0) {
@@ -122,10 +126,13 @@ public class AI extends Thread{
 //                        AAInterfaz.tlfenfabrica.release();
                         AAInterfaz.Cantidadcola3.setText(Integer.toString(AAInterfaz.Prioridad3.size));
                      }
+                     revisados = false;
                 }
             }
+                }
             //fab2
             //prioridad 1 
+                if (comp1!=null) {
             if (AAInterfaz.Prioridad12.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad12.getPfirst();
                 comp2=temporal.telefono;
@@ -204,7 +211,9 @@ public class AI extends Thread{
                      }
                 }
             }
+                }
             //combate
+                if (comp1!=null==true && comp2!=null) {
             AAInterfaz.copascomp1.setText(Integer.toString(comp1.Copas));
             AAInterfaz.copascomp2.setText(Integer.toString(comp2.Copas));
             animation(AAInterfaz.Progreso);
@@ -237,8 +246,11 @@ public class AI extends Thread{
                 if (AAInterfaz.revisados!=4) {
                     AAInterfaz.revisados +=2;
                 }
+                revisados = true;
+                }
             
             } 
+            
         } catch (InterruptedException ex) {
             Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
         }

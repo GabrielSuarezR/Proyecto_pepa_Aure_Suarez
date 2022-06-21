@@ -14,6 +14,7 @@ import java.util.logging.Logger;
  */
 public class CreadorTlf extends Thread{
     public boolean stop = true;
+        int probabilidad = 0;
     
     
     public void StopToggle(){
@@ -24,12 +25,18 @@ public class CreadorTlf extends Thread{
         while (stop) {  
             try{
             sleep(100);
+                int max=100;
+                int min=0;
+                if (AAInterfaz.cuenta1!=20) {
+                    probabilidad = (int)(Math.random()*(max-min+1)+min);
+                }
+                if (probabilidad<=70) {
                 if (AAInterfaz.revisados == 4 | AAInterfaz.cuenta1 != 20) {
                  if (AAInterfaz.tlfenfabrica.availablePermits()!=0) {
                 if (AAInterfaz.EnProceso==false) {
 //                    for (int i = 0; i < 10; i++) {
-                        int max=100;
-                        int min=0;
+                        max=100;
+                        min=0;
                         int calidad=0;
                         int copastelefono = 0;
                         //copas por camara
@@ -64,6 +71,7 @@ public class CreadorTlf extends Thread{
 //                    }
                 }
                 }
+            }
             }
 
         }catch (InterruptedException ex) {
