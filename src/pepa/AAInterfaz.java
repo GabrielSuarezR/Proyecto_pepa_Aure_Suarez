@@ -365,10 +365,10 @@ public class AAInterfaz extends javax.swing.JFrame {
         hilotlfs.start();
         Creadortlf2 hilotlfs2 = new Creadortlf2();
         hilotlfs2.start();
-        AI ai = new AI();
-        ai.start();
         Admin administrador = new Admin();
         administrador.start();
+        AI ai = new AI();
+        ai.start();
 
     }//GEN-LAST:event_ComenzarActionPerformed
 

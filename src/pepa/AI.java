@@ -46,7 +46,7 @@ public class AI extends Thread{
     public void run(){
         try {
             while (stop) { 
-                sleep(100);
+                sleep(1000);
             //Para prioridad 1
                 if (revisados ==true) {
             if (AAInterfaz.Prioridad1.size!=0) {

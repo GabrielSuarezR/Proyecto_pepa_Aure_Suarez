@@ -88,7 +88,7 @@ public class Admin extends Thread{
                     texto="";
                 }
                 AAInterfaz.Refuerzofab2.setText(texto);
-                if (AI.termino == true) {
+                if (AI.termino == true && !AAInterfaz.Refuerzo1.esta_vacia()) {
                     int accion;
                     int max=100;
                     int min=0;
@@ -97,10 +97,16 @@ public class Admin extends Thread{
                         Nodo temporal = new Nodo();
                         temporal=AAInterfaz.Refuerzo1.pfirst;
                         AAInterfaz.Refuerzo1.Desencolar();
+                        AAInterfaz.definirprioridadgeneral1(temporal.telefono);
+                        temporal=AAInterfaz.Refuerzo2.pfirst;
+                        AAInterfaz.Refuerzo2.Desencolar();
+                        AAInterfaz.definirprioridadgeneral2(temporal.telefono);
                         AI.termino = false;
                     }if (accion>=70) {
                         AI.termino = false;
                     }
+                }else{
+                    AI.termino = false;
                 }
             }
                 } catch (InterruptedException ex) {
