@@ -23,9 +23,10 @@ public class AI extends Thread{
     Telefono comp1;
     Telefono comp2;
     int progreso=0;
-    int tiempo = 1400;
+    int tiempo = 14;
     boolean revisados = true;
     public static boolean termino = false;
+    boolean actualizo = false;
     
     
     public void StopToggle(){
@@ -46,7 +47,7 @@ public class AI extends Thread{
     public void run(){
         try {
             while (stop) { 
-                sleep(1000);
+                sleep(500);
             //Para prioridad 1
                 if (revisados ==true) {
             if (AAInterfaz.Prioridad1.size!=0) {
@@ -133,7 +134,7 @@ public class AI extends Thread{
                 }
             //fab2
             //prioridad 1 
-                if (comp1!=null) {
+                if (revisados ==false) {
             if (AAInterfaz.Prioridad12.size!=0) {
                 Nodo temporal = AAInterfaz.Prioridad12.getPfirst();
                 comp2=temporal.telefono;
@@ -171,7 +172,8 @@ public class AI extends Thread{
                         AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
                         contadorcola23=0;
                     }
-                }   
+                }  
+                actualizo = true;
                 //Para prioridad 2
             }else{
                 if (AAInterfaz.Prioridad22.size!=0) {
@@ -197,7 +199,8 @@ public class AI extends Thread{
                         AAInterfaz.contadorfab23.setText(Integer.toString(contadorcola23));
                         contadorcola23=0;
                     }   
-                }    
+                }  
+                    actualizo = true;
                     //Para prioridad 3
                 }else{
                      if (AAInterfaz.Prioridad32.size!=0) {
@@ -210,11 +213,12 @@ public class AI extends Thread{
 //                        AAInterfaz.tlfenfabrica2.release(1);
                         AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
                      }
+                     actualizo = true;
                 }
             }
                 }
             //combate
-                if (comp1!=null==true && comp2!=null) {
+                if (actualizo == true) {
             AAInterfaz.copascomp1.setText(Integer.toString(comp1.Copas));
             AAInterfaz.copascomp2.setText(Integer.toString(comp2.Copas));
             animation(AAInterfaz.Progreso);
@@ -230,8 +234,10 @@ public class AI extends Thread{
                         AAInterfaz.tlfenfabrica.release();
                     if (comp1.Copas>comp2.Copas) {
                         AAInterfaz.Mercado.append(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
+                        AAInterfaz.escribirCsv(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
                     }if (comp2.Copas>comp1.Copas) {
                         AAInterfaz.Mercado.append(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n"); 
+                        AAInterfaz.escribirCsv(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n");
                     }
                     //empate
                 }if (accion>=41 && accion<=67) {
@@ -249,6 +255,7 @@ public class AI extends Thread{
                 }
                 revisados = true;
                 termino = true;
+                actualizo=false;
                 }
             
             } 

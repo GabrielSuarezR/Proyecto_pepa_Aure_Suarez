@@ -5,6 +5,8 @@
  */
 package pepa;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -93,7 +95,7 @@ public class Admin extends Thread{
                     int max=100;
                     int min=0;
                     accion = (int)(Math.random()*(max-min+1)+min);
-                    if (accion <= 70) {
+                    if (accion <= 40) {
                         Nodo temporal = new Nodo();
                         temporal=AAInterfaz.Refuerzo1.pfirst;
                         AAInterfaz.Refuerzo1.Desencolar();
@@ -112,6 +114,7 @@ public class Admin extends Thread{
                 } catch (InterruptedException ex) {
             Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         
     }
 }

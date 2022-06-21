@@ -5,6 +5,10 @@
  */
 package pepa;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -105,6 +109,25 @@ public class AAInterfaz extends javax.swing.JFrame {
                 AAInterfaz.Prioridad32.Encolar(comp2);
                 AAInterfaz.Cantidad2cola3.setText(Integer.toString(AAInterfaz.Prioridad32.size));
             }
+    }
+    public static void escribirCsv(String telf){
+        String historicoDespachos = "";
+        String line;
+        try {
+            FileReader pw1 =new FileReader("test\\telefonos-mercado.csv");
+            BufferedReader br = new BufferedReader(pw1);
+                while ((line = br.readLine()) != null){
+                    if (!line.isEmpty()){
+                        historicoDespachos += line + "\n";
+                    }
+                }
+
+        
+            FileWriter pw = new FileWriter("test\\telefonos-mercado.csv");
+            pw.append(historicoDespachos + telf);
+            pw.close();
+        } catch (Exception e) {
+        }
     }
     
     public AAInterfaz() {
@@ -213,7 +236,12 @@ public class AAInterfaz extends javax.swing.JFrame {
         Cantidadcola2.setText("0");
         ventana.add(Cantidadcola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 30, 20));
 
-        jToggleButton2.setText("Parar Proceso");
+        jToggleButton2.setText("Guardar CSV");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
         ventana.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
 
         jLabel3.setText("Colas");
@@ -371,6 +399,10 @@ public class AAInterfaz extends javax.swing.JFrame {
         ai.start();
 
     }//GEN-LAST:event_ComenzarActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
      * @param args the command line arguments

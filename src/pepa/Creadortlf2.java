@@ -28,12 +28,12 @@ public class Creadortlf2 extends  Thread{
                 sleep(100);
                 int max=100;
                 int min=0;
-                 if (AAInterfaz.cuenta1!=20) {
+                 if (AAInterfaz.cuenta2!=20) {
                     probabilidad = (int)(Math.random()*(max-min+1)+min);
                 }
                 probabilidad = (int)(Math.random()*(max-min+1)+min);
                 if (probabilidad<=70) {
-                if (AAInterfaz.revisados == 4| AAInterfaz.cuenta1 != 20) {
+                if (AAInterfaz.revisados == 4| AAInterfaz.cuenta2 != 20) {
                 if (AAInterfaz.tlfenfabrica2.availablePermits()!=0) {
                 if (AAInterfaz.EnProceso==false) {
 //                    for (int i = 0; i < 10; i++) {
