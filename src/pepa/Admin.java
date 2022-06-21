@@ -88,6 +88,20 @@ public class Admin extends Thread{
                     texto="";
                 }
                 AAInterfaz.Refuerzofab2.setText(texto);
+                if (AI.termino == true) {
+                    int accion;
+                    int max=100;
+                    int min=0;
+                    accion = (int)(Math.random()*(max-min+1)+min);
+                    if (accion <= 70) {
+                        Nodo temporal = new Nodo();
+                        temporal=AAInterfaz.Refuerzo1.pfirst;
+                        AAInterfaz.Refuerzo1.Desencolar();
+                        AI.termino = false;
+                    }if (accion>=70) {
+                        AI.termino = false;
+                    }
+                }
             }
                 } catch (InterruptedException ex) {
             Logger.getLogger(AI.class.getName()).log(Level.SEVERE, null, ex);

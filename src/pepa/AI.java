@@ -23,8 +23,9 @@ public class AI extends Thread{
     Telefono comp1;
     Telefono comp2;
     int progreso=0;
-    int tiempo = 140;
+    int tiempo = 1400;
     boolean revisados = true;
+    public static boolean termino = false;
     
     
     public void StopToggle(){
@@ -247,6 +248,7 @@ public class AI extends Thread{
                     AAInterfaz.revisados +=2;
                 }
                 revisados = true;
+                termino = true;
                 }
             
             } 
