@@ -27,12 +27,12 @@ public class CreadorTlf extends Thread{
             sleep(100);
                 int max=100;
                 int min=0;
-                if (AAInterfaz.cuenta1!=20) {
+                if (AAInterfaz.cuenta1==20) {
                     probabilidad = (int)(Math.random()*(max-min+1)+min);
                 }
                 if (probabilidad<=70) {
                 if (AAInterfaz.revisados == 4 | AAInterfaz.cuenta1 != 20) {
-                 if (AAInterfaz.tlfenfabrica.availablePermits()!=0) {
+                if (AAInterfaz.tlfenfabrica.availablePermits()!=0) {
                 if (AAInterfaz.EnProceso==false) {
 //                    for (int i = 0; i < 10; i++) {
                         max=100;
@@ -62,7 +62,7 @@ public class CreadorTlf extends Thread{
                         if (calidad<=84) {
                             copastelefono+=400;
                         }
-                         AAInterfaz.mutex.acquire();
+                        AAInterfaz.mutex.acquire();
                         Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 10 IV");
                         AAInterfaz.numeroID+=1;
                         AAInterfaz.mutex.release();

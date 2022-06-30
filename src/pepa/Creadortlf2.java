@@ -28,7 +28,7 @@ public class Creadortlf2 extends  Thread{
                 sleep(100);
                 int max=100;
                 int min=0;
-                 if (AAInterfaz.cuenta2!=20) {
+                 if (AAInterfaz.cuenta2==20) {
                     probabilidad = (int)(Math.random()*(max-min+1)+min);
                 }
                 probabilidad = (int)(Math.random()*(max-min+1)+min);

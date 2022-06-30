@@ -23,7 +23,7 @@ public class AI extends Thread{
     Telefono comp1;
     Telefono comp2;
     int progreso=0;
-    int tiempo = 14;
+    int tiempo = 14000;
     boolean revisados = true;
     public static boolean termino = false;
     boolean actualizo = false;
