@@ -13,11 +13,14 @@ public class Telefono{
     int ID;
     String Tipo;
     int Copas;
+    int[] mazo = new int[8];
     
-    public Telefono(int id,int copas,String tipo){
+    
+    public Telefono(int id,int copas,String tipo,int[] mazo){
         this.ID=id;
         this.Tipo=tipo;
         this.Copas=copas;
+        this.mazo=mazo;
     }
-    
+        
 }

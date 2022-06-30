@@ -41,6 +41,9 @@ public class Creadortlf2 extends  Thread{
                         min=0;
                         int calidad=0;
                         int copastelefono = 0;
+                        int[] mazo;
+                        //Generar mazo
+                        mazo = AAInterfaz.generarCartas();
                         //copas por camara
                         for (int j = 0; j < 4; j++) {
                             calidad = (int)(Math.random()*(max-min+1)+min);
@@ -65,7 +68,7 @@ public class Creadortlf2 extends  Thread{
                             copastelefono+=400;
                         }
                         AAInterfaz.mutex.acquire();
-                        Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 1 IV");
+                        Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 1 IV",mazo);
                         AAInterfaz.numeroID+=1;
                         AAInterfaz.mutex.release();
                         AAInterfaz.definirPrioridad2(nuevo);

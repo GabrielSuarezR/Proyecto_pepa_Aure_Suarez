@@ -32,11 +32,29 @@ public class AAInterfaz extends javax.swing.JFrame {
     public static Cola Prioridad12 = new Cola();
     public static Cola Prioridad22 = new Cola();
     public static Cola Prioridad32 = new Cola();
-     public static Cola Refuerzo2 = new Cola();
+    public static Cola Refuerzo2 = new Cola();
     public static Semaphore tlfenfabrica2 = new Semaphore(20);
+    
     /**
      * Creates new form AAInterfaz
      */
+    
+    public static int[] generarCartas(){
+        int[] mazo = new int[8];
+        int min = 1;
+        int max = 16;
+        int generadorCarta = 0; 
+        int counter = 0;
+        while (counter != 8){
+            for (int i = 0; i < 8; i++) {
+                generadorCarta = (int)(Math.random()*max + min);
+                mazo[i] = generadorCarta;
+                counter+=1;
+            }
+        }
+        return mazo;
+    }
+    
     public static void definirPrioridad(Telefono nuevo){
         try{
         if (nuevo.Copas>=3000) {

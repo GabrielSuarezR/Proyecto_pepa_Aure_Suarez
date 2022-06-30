@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class CreadorTlf extends Thread{
     public boolean stop = true;
-        int probabilidad = 0;
+    int probabilidad = 0;
     
     
     public void StopToggle(){
@@ -39,6 +39,10 @@ public class CreadorTlf extends Thread{
                         min=0;
                         int calidad=0;
                         int copastelefono = 0;
+                        int[] mazo;
+                        //Generar mazo
+                        mazo = AAInterfaz.generarCartas();
+                        
                         //copas por camara
                         for (int j = 0; j < 3; j++) {
                             calidad = (int)(Math.random()*(max-min+1)+min);
@@ -63,7 +67,7 @@ public class CreadorTlf extends Thread{
                             copastelefono+=400;
                         }
                         AAInterfaz.mutex.acquire();
-                        Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 10 IV");
+                        Telefono nuevo = new Telefono(AAInterfaz.numeroID+1, copastelefono, "Xperia 10 IV",mazo);
                         AAInterfaz.numeroID+=1;
                         AAInterfaz.mutex.release();
                         AAInterfaz.definirPrioridad(nuevo);
