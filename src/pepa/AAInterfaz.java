@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -55,13 +56,70 @@ public class AAInterfaz extends javax.swing.JFrame {
         return mazo;
     }
     
+    public static void nombreCartas(Telefono comp, int i, JTextArea Mazo){
+            
+            if (comp.mazo[i] == 1){
+              Mazo.append("Esqueletos"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 2){
+                Mazo.append("Lapida"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 3){
+                Mazo.append("Furia"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 4){
+                Mazo.append("Subueso de Laba"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 5){
+                Mazo.append("Caballero"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 6){
+                Mazo.append("Bola de Fuego"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 7){
+                Mazo.append("Guardias"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 8){
+                Mazo.append("Princesa"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 9){
+                Mazo.append("Lanzafuegos"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 10){
+                Mazo.append("Mini Pekka"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 11){
+                Mazo.append("Barril de Duendes"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 12){
+                Mazo.append("Tronco"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 13){
+                Mazo.append("Zap"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 14){
+                Mazo.append("Montapuercos"+""+"("+comp.mazo[i]+")\n");
+            }
+            else if(comp.mazo[i] == 15){
+                Mazo.append("Globo Bombastico"+""+"("+comp.mazo[i]+")\n");
+            }
+            else{
+                Mazo.append("Mega Caballero"+""+"("+comp.mazo[i]+")\n");
+            }
+    }
+    
     public static void batalla(Telefono comp1, Telefono comp2){
+        // Nombres cartas
+        Mazo1.setText("");
+        Mazo2.setText("");
         
         // Calculo de calidad mazo Competidor 1
         
         int calidadMazo1 = 0;
         for (int i = 0; i < 8; i++) {
             calidadMazo1+=comp1.mazo[i];
+            nombreCartas(comp1, i,Mazo1);
+            
         }
         
         // Calculo de calidad mazo Competidor 2
@@ -69,6 +127,7 @@ public class AAInterfaz extends javax.swing.JFrame {
         int calidadMazo2 = 0;
         for (int i = 0; i < 8; i++) {
             calidadMazo1+=comp2.mazo[i];
+            nombreCartas(comp2, i,Mazo2);
         }
         //Decision ganador
         
@@ -267,33 +326,47 @@ public class AAInterfaz extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        Mazo2Scroll = new javax.swing.JScrollPane();
+        Mazo2 = new javax.swing.JTextArea();
+        Mazo1Scroll = new javax.swing.JScrollPane();
+        Mazo1 = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        ventana.setBackground(new java.awt.Color(0, 51, 204));
         ventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Colas");
         ventana.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 40, 24));
 
+        Cola3fab1.setForeground(new java.awt.Color(255, 255, 255));
         Cola3fab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cola3fab1.setText("#3");
         ventana.add(Cola3fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 60, 24));
 
+        Cola2fab1.setForeground(new java.awt.Color(255, 255, 255));
         Cola2fab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cola2fab1.setText("#2");
         ventana.add(Cola2fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 60, 24));
 
+        Cola1fab1.setForeground(new java.awt.Color(255, 255, 255));
         Cola1fab1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cola1fab1.setText("#1");
         ventana.add(Cola1fab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 60, 24));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Fabrica2");
         ventana.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 200, 37));
 
+        Comenzar.setBackground(new java.awt.Color(255, 153, 0));
+        Comenzar.setForeground(new java.awt.Color(255, 255, 255));
         Comenzar.setText("BATALLA");
         Comenzar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,14 +375,17 @@ public class AAInterfaz extends javax.swing.JFrame {
         });
         ventana.add(Comenzar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 200, 60));
 
+        Cantidadcola1.setForeground(new java.awt.Color(255, 255, 255));
         Cantidadcola1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cantidadcola1.setText("0");
         ventana.add(Cantidadcola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 60, 20));
 
+        Cantidadcola3.setForeground(new java.awt.Color(255, 255, 255));
         Cantidadcola3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cantidadcola3.setText("0");
         ventana.add(Cantidadcola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 60, 20));
 
+        Cantidadcola2.setForeground(new java.awt.Color(255, 255, 255));
         Cantidadcola2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cantidadcola2.setText("0");
         ventana.add(Cantidadcola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 60, 20));
@@ -322,34 +398,42 @@ public class AAInterfaz extends javax.swing.JFrame {
         });
         ventana.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
+        Cola1fab2.setForeground(new java.awt.Color(255, 255, 255));
         Cola1fab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cola1fab2.setText("#1");
         ventana.add(Cola1fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 360, 60, 24));
 
+        cola2fab2.setForeground(new java.awt.Color(255, 255, 255));
         cola2fab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cola2fab2.setText("#2");
         ventana.add(cola2fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 360, 60, 24));
 
+        cola3fab2.setForeground(new java.awt.Color(255, 255, 255));
         cola3fab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         cola3fab2.setText("#3");
         ventana.add(cola3fab2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 360, 60, 24));
 
+        Cantidad2cola3.setForeground(new java.awt.Color(255, 255, 255));
         Cantidad2cola3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cantidad2cola3.setText("0");
         ventana.add(Cantidad2cola3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 380, 60, 20));
 
+        Cantidad2cola1.setForeground(new java.awt.Color(255, 255, 255));
         Cantidad2cola1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cantidad2cola1.setText("0");
         ventana.add(Cantidad2cola1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 60, 20));
 
+        Cantidad2cola2.setForeground(new java.awt.Color(255, 255, 255));
         Cantidad2cola2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cantidad2cola2.setText("0");
         ventana.add(Cantidad2cola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 60, 20));
 
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("AI");
         ventana.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 160, 20));
 
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("DECISION");
         ventana.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 200, -1));
@@ -358,145 +442,197 @@ public class AAInterfaz extends javax.swing.JFrame {
         desicion.setText("...");
         ventana.add(desicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 200, 20));
 
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("IDTelefonos");
         ventana.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
+        Competidor2.setForeground(new java.awt.Color(255, 255, 255));
         Competidor2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Competidor2.setText("TLF2");
         ventana.add(Competidor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 200, 20));
 
+        competidor1.setForeground(new java.awt.Color(255, 255, 255));
         competidor1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         competidor1.setText("TLF1");
         ventana.add(competidor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, 200, 20));
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("VS");
         ventana.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 200, 170));
 
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Contador");
         ventana.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
+        Contadorfab13.setForeground(new java.awt.Color(255, 255, 255));
         Contadorfab13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Contadorfab13.setText("0");
         ventana.add(Contadorfab13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 60, 20));
 
+        contadorfab12.setForeground(new java.awt.Color(255, 255, 255));
         contadorfab12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         contadorfab12.setText("0");
         ventana.add(contadorfab12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 60, 20));
 
+        Contadorfab22.setForeground(new java.awt.Color(255, 255, 255));
         Contadorfab22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Contadorfab22.setText("0");
         ventana.add(Contadorfab22, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 60, 20));
 
+        contadorfab23.setForeground(new java.awt.Color(255, 255, 255));
         contadorfab23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         contadorfab23.setText("0");
         ventana.add(contadorfab23, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 340, 60, 20));
 
         Mercado.setEditable(false);
+        Mercado.setBackground(new java.awt.Color(51, 51, 255));
         Mercado.setColumns(20);
+        Mercado.setForeground(new java.awt.Color(255, 255, 255));
         Mercado.setRows(5);
         jScrollPane1.setViewportView(Mercado);
 
         ventana.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 200, 190));
 
         IDfab13.setEditable(false);
+        IDfab13.setBackground(new java.awt.Color(51, 51, 255));
         IDfab13.setColumns(20);
+        IDfab13.setForeground(new java.awt.Color(255, 255, 255));
         IDfab13.setRows(5);
         jScrollPane4.setViewportView(IDfab13);
 
         ventana.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, 60, 240));
 
         IDfab23.setEditable(false);
+        IDfab23.setBackground(new java.awt.Color(51, 51, 255));
         IDfab23.setColumns(20);
+        IDfab23.setForeground(new java.awt.Color(255, 255, 255));
         IDfab23.setRows(5);
         jScrollPane5.setViewportView(IDfab23);
 
         ventana.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 400, 60, 240));
 
         IDfab12.setEditable(false);
+        IDfab12.setBackground(new java.awt.Color(51, 51, 255));
         IDfab12.setColumns(20);
+        IDfab12.setForeground(new java.awt.Color(255, 255, 255));
         IDfab12.setRows(5);
         jScrollPane6.setViewportView(IDfab12);
 
         ventana.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 60, 240));
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Fabrica1");
         ventana.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 200, 37));
 
         IDfab11.setEditable(false);
+        IDfab11.setBackground(new java.awt.Color(51, 51, 255));
         IDfab11.setColumns(20);
+        IDfab11.setForeground(new java.awt.Color(255, 255, 255));
         IDfab11.setRows(5);
         jScrollPane7.setViewportView(IDfab11);
 
         ventana.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 400, 60, 240));
 
         IDfab21.setEditable(false);
+        IDfab21.setBackground(new java.awt.Color(51, 51, 255));
         IDfab21.setColumns(20);
+        IDfab21.setForeground(new java.awt.Color(255, 255, 255));
         IDfab21.setRows(5);
         jScrollPane8.setViewportView(IDfab21);
 
         ventana.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 400, 60, 240));
 
         IDfab22.setEditable(false);
+        IDfab22.setBackground(new java.awt.Color(51, 51, 255));
         IDfab22.setColumns(20);
+        IDfab22.setForeground(new java.awt.Color(255, 255, 255));
         IDfab22.setRows(5);
         jScrollPane9.setViewportView(IDfab22);
 
         ventana.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 400, 60, 240));
         ventana.add(Progreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 340, 160, 20));
 
+        copascomp1.setForeground(new java.awt.Color(255, 255, 255));
         copascomp1.setText("0");
         ventana.add(copascomp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 50, 20));
 
+        copascomp2.setForeground(new java.awt.Color(255, 255, 255));
         copascomp2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         copascomp2.setText("0");
         ventana.add(copascomp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 100, 50, 20));
 
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel12.setText("Cola Refuerzo 2");
         ventana.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 60, -1));
 
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Cola Refuerzo 1");
         ventana.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 60, -1));
 
         Refuerzofab2.setEditable(false);
+        Refuerzofab2.setBackground(new java.awt.Color(51, 51, 255));
         Refuerzofab2.setColumns(20);
+        Refuerzofab2.setForeground(new java.awt.Color(255, 255, 255));
         Refuerzofab2.setRows(5);
         jScrollPane2.setViewportView(Refuerzofab2);
 
         ventana.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 490, 60, 150));
 
         Refuerzofab1.setEditable(false);
+        Refuerzofab1.setBackground(new java.awt.Color(51, 51, 255));
         Refuerzofab1.setColumns(20);
+        Refuerzofab1.setForeground(new java.awt.Color(255, 255, 255));
         Refuerzofab1.setRows(5);
         jScrollPane3.setViewportView(Refuerzofab1);
 
         ventana.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 490, 60, 150));
 
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("Historial de Ganadores");
         ventana.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 200, -1));
 
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("FC");
         ventana.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, 30));
 
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel15.setText("FC");
         ventana.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 30, 30));
 
-        jTextField1.setEditable(false);
-        ventana.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 100, 130, 200));
+        Mazo2.setColumns(20);
+        Mazo2.setRows(5);
+        Mazo2Scroll.setViewportView(Mazo2);
 
-        jTextField2.setEditable(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        ventana.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 130, 200));
+        ventana.add(Mazo2Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 180, 200));
+
+        Mazo1.setColumns(20);
+        Mazo1.setRows(5);
+        Mazo1Scroll.setViewportView(Mazo1);
+
+        ventana.add(Mazo1Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 180, 200));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pepa/fondo_cr.png"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        ventana.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 590, 330));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pepa/fondo_cr.png"))); // NOI18N
+        jLabel9.setText("jLabel3");
+        ventana.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 330));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pepa/fondo_cr.png"))); // NOI18N
+        jLabel16.setText("jLabel3");
+        ventana.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 570, 330));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pepa/fondo_cr.png"))); // NOI18N
+        jLabel17.setText("jLabel3");
+        ventana.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 570, 330));
 
         getContentPane().add(ventana, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 653));
 
@@ -518,10 +654,6 @@ public class AAInterfaz extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
 
     }//GEN-LAST:event_jToggleButton2ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -579,6 +711,10 @@ public class AAInterfaz extends javax.swing.JFrame {
     public static javax.swing.JTextArea IDfab21;
     public static javax.swing.JTextArea IDfab22;
     public static javax.swing.JTextArea IDfab23;
+    public static javax.swing.JTextArea Mazo1;
+    private javax.swing.JScrollPane Mazo1Scroll;
+    public static javax.swing.JTextArea Mazo2;
+    private javax.swing.JScrollPane Mazo2Scroll;
     public static javax.swing.JTextArea Mercado;
     public static javax.swing.JProgressBar Progreso;
     public static javax.swing.JTextArea Refuerzofab1;
@@ -598,12 +734,16 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -613,8 +753,6 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPanel ventana;
     // End of variables declaration//GEN-END:variables

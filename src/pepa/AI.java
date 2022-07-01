@@ -23,7 +23,7 @@ public class AI extends Thread{
     Telefono comp1;
     Telefono comp2;
     int progreso=0;
-    int tiempo = 7000;
+    int tiempo = 3500;
     boolean revisados = true;
     public static boolean termino = false;
     boolean actualizo = false;
@@ -243,11 +243,15 @@ public class AI extends Thread{
                     //empate
                 }if (accion>=41 && accion<=67) {
                     AAInterfaz.desicion.setText("Empate");
+                    AAInterfaz.Mazo1.setText("");
+                    AAInterfaz.Mazo2.setText("");
                     AAInterfaz.definirprioridadgeneral1(comp1);
                     AAInterfaz.definirprioridadgeneral2(comp2);
                     // Refuerzo
                 }if (accion>=68) {
                     AAInterfaz.desicion.setText("Requiere refuerzo");
+                    AAInterfaz.Mazo1.setText("");
+                    AAInterfaz.Mazo2.setText("");
                     AAInterfaz.Refuerzo1.Encolar(comp1);
                     AAInterfaz.Refuerzo2.Encolar(comp2);
                 }
