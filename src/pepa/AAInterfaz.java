@@ -280,7 +280,6 @@ public class AAInterfaz extends javax.swing.JFrame {
         Cantidadcola1 = new javax.swing.JLabel();
         Cantidadcola3 = new javax.swing.JLabel();
         Cantidadcola2 = new javax.swing.JLabel();
-        jToggleButton2 = new javax.swing.JToggleButton();
         Cola1fab2 = new javax.swing.JLabel();
         cola2fab2 = new javax.swing.JLabel();
         cola3fab2 = new javax.swing.JLabel();
@@ -325,11 +324,8 @@ public class AAInterfaz extends javax.swing.JFrame {
         Refuerzofab1 = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        Mazo2Scroll = new javax.swing.JScrollPane();
-        Mazo2 = new javax.swing.JTextArea();
-        Mazo1Scroll = new javax.swing.JScrollPane();
         Mazo1 = new javax.swing.JTextArea();
+        Mazo2 = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -390,14 +386,6 @@ public class AAInterfaz extends javax.swing.JFrame {
         Cantidadcola2.setText("0");
         ventana.add(Cantidadcola2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 60, 20));
 
-        jToggleButton2.setText("Guardar CSV");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-        ventana.add(jToggleButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
         Cola1fab2.setForeground(new java.awt.Color(255, 255, 255));
         Cola1fab2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Cola1fab2.setText("#1");
@@ -438,6 +426,8 @@ public class AAInterfaz extends javax.swing.JFrame {
         jLabel6.setText("DECISION");
         ventana.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 200, -1));
 
+        desicion.setBackground(new java.awt.Color(255, 255, 255));
+        desicion.setForeground(new java.awt.Color(255, 255, 255));
         desicion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         desicion.setText("...");
         ventana.add(desicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 200, 20));
@@ -464,7 +454,7 @@ public class AAInterfaz extends javax.swing.JFrame {
 
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Contador");
-        ventana.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+        ventana.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         Contadorfab13.setForeground(new java.awt.Color(255, 255, 255));
         Contadorfab13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -566,12 +556,12 @@ public class AAInterfaz extends javax.swing.JFrame {
 
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Cola Refuerzo 2");
+        jLabel12.setText("Refuerzo");
         ventana.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 60, -1));
 
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("Cola Refuerzo 1");
+        jLabel13.setText("Refuerzo");
         ventana.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 60, -1));
 
         Refuerzofab2.setEditable(false);
@@ -598,25 +588,20 @@ public class AAInterfaz extends javax.swing.JFrame {
         ventana.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 200, -1));
 
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel14.setText("FC");
-        ventana.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 30, 30));
+        jLabel14.setText("Copas");
+        ventana.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 50, 20));
 
-        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel15.setText("FC");
-        ventana.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 90, 30, 30));
-
-        Mazo2.setColumns(20);
-        Mazo2.setRows(5);
-        Mazo2Scroll.setViewportView(Mazo2);
-
-        ventana.add(Mazo2Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 180, 200));
-
+        Mazo1.setBackground(new java.awt.Color(51, 51, 255));
         Mazo1.setColumns(20);
+        Mazo1.setForeground(new java.awt.Color(255, 255, 255));
         Mazo1.setRows(5);
-        Mazo1Scroll.setViewportView(Mazo1);
+        ventana.add(Mazo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 180, 200));
 
-        ventana.add(Mazo1Scroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 180, 200));
+        Mazo2.setBackground(new java.awt.Color(51, 51, 255));
+        Mazo2.setColumns(20);
+        Mazo2.setForeground(new java.awt.Color(255, 255, 255));
+        Mazo2.setRows(5);
+        ventana.add(Mazo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, 180, 200));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pepa/fondo_cr.png"))); // NOI18N
         jLabel3.setText("jLabel3");
@@ -648,12 +633,9 @@ public class AAInterfaz extends javax.swing.JFrame {
         administrador.start();
         AI ai = new AI();
         ai.start();
+        Comenzar.setEnabled(false);
 
     }//GEN-LAST:event_ComenzarActionPerformed
-
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -712,9 +694,7 @@ public class AAInterfaz extends javax.swing.JFrame {
     public static javax.swing.JTextArea IDfab22;
     public static javax.swing.JTextArea IDfab23;
     public static javax.swing.JTextArea Mazo1;
-    private javax.swing.JScrollPane Mazo1Scroll;
     public static javax.swing.JTextArea Mazo2;
-    private javax.swing.JScrollPane Mazo2Scroll;
     public static javax.swing.JTextArea Mercado;
     public static javax.swing.JProgressBar Progreso;
     public static javax.swing.JTextArea Refuerzofab1;
@@ -733,7 +713,6 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -753,7 +732,6 @@ public class AAInterfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JPanel ventana;
     // End of variables declaration//GEN-END:variables
 }
