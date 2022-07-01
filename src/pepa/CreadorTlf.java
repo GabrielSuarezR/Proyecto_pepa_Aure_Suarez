@@ -41,7 +41,7 @@ public class CreadorTlf extends Thread{
                         int copastelefono = 0;
                         int[] mazo;
                         //Generar mazo
-                        mazo = AAInterfaz.generarCartas();
+                        mazo = AAInterfaz.generarMazo();
                         
                         //copas por camara
                         for (int j = 0; j < 3; j++) {

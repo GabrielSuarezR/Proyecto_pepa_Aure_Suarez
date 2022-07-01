@@ -23,7 +23,7 @@ public class AI extends Thread{
     Telefono comp1;
     Telefono comp2;
     int progreso=0;
-    int tiempo = 14000;
+    int tiempo = 7000;
     boolean revisados = true;
     public static boolean termino = false;
     boolean actualizo = false;
@@ -230,15 +230,16 @@ public class AI extends Thread{
             //Salida al marcado
                 if (accion<=40) {
                     AAInterfaz.desicion.setText("Sale al mercado");
-                        AAInterfaz.tlfenfabrica2.release(1);
-                        AAInterfaz.tlfenfabrica.release();
-                    if (comp1.Copas>comp2.Copas) {
-                        AAInterfaz.Mercado.append(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
-                        AAInterfaz.escribirCsv(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
-                    }if (comp2.Copas>comp1.Copas) {
-                        AAInterfaz.Mercado.append(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n"); 
-                        AAInterfaz.escribirCsv(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n");
-                    }
+                    AAInterfaz.tlfenfabrica2.release(1);
+                    AAInterfaz.tlfenfabrica.release();
+                    AAInterfaz.batalla(comp1, comp2);
+//                    if (comp1.Copas>comp2.Copas) {
+//                        AAInterfaz.Mercado.append(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
+//                        AAInterfaz.escribirCsv(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
+//                    }if (comp2.Copas>comp1.Copas) {
+//                        AAInterfaz.Mercado.append(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n"); 
+//                        AAInterfaz.escribirCsv(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n");
+//                    }
                     //empate
                 }if (accion>=41 && accion<=67) {
                     AAInterfaz.desicion.setText("Empate");

@@ -43,7 +43,7 @@ public class Creadortlf2 extends  Thread{
                         int copastelefono = 0;
                         int[] mazo;
                         //Generar mazo
-                        mazo = AAInterfaz.generarCartas();
+                        mazo = AAInterfaz.generarMazo();
                         //copas por camara
                         for (int j = 0; j < 4; j++) {
                             calidad = (int)(Math.random()*(max-min+1)+min);

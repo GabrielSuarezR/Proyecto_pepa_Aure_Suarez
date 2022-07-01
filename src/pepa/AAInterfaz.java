@@ -39,7 +39,7 @@ public class AAInterfaz extends javax.swing.JFrame {
      * Creates new form AAInterfaz
      */
     
-    public static int[] generarCartas(){
+    public static int[] generarMazo(){
         int[] mazo = new int[8];
         int min = 1;
         int max = 16;
@@ -53,6 +53,54 @@ public class AAInterfaz extends javax.swing.JFrame {
             }
         }
         return mazo;
+    }
+    
+    public static void batalla(Telefono comp1, Telefono comp2){
+        
+        // Calculo de calidad mazo Competidor 1
+        
+        int calidadMazo1 = 0;
+        for (int i = 0; i < 8; i++) {
+            calidadMazo1+=comp1.mazo[i];
+        }
+        
+        // Calculo de calidad mazo Competidor 2
+        
+        int calidadMazo2 = 0;
+        for (int i = 0; i < 8; i++) {
+            calidadMazo1+=comp2.mazo[i];
+        }
+        //Decision ganador
+        
+        if (calidadMazo1 > calidadMazo2){
+            //Gana Comp1
+            
+            Mercado.append(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
+            escribirCsv(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n"); 
+        }
+        else if (calidadMazo1 < calidadMazo2){
+            //Gana Comp2
+            
+            Mercado.append(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n"); 
+            escribirCsv(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n");
+        }
+        else{
+            // Se define por copas
+            
+            if (comp1.Copas>comp2.Copas) {
+                //Gana Comp1
+                
+                Mercado.append(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
+                escribirCsv(comp1.Tipo+"  "+"ID:"+Integer.toString(comp1.ID)+"\n");
+            }
+            else{
+                //Gana Comp2
+                
+                Mercado.append(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n"); 
+                escribirCsv(comp2.Tipo+"  "+"ID:"+Integer.toString(comp2.ID)+"\n");
+            }
+        }
+        
     }
     
     public static void definirPrioridad(Telefono nuevo){
